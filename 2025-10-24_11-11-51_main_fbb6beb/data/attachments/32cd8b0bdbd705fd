@@ -1,0 +1,89 @@
+HTTP/1.1 200 OK
+Date: Fri, 24 Oct 2025 11:11:23 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1235
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: set-cookie,Set-Cookie
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Origin-Agent-Cluster: ?1
+Referrer-Policy: no-referrer
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Content-Type-Options: nosniff
+X-DNS-Prefetch-Control: off
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-XSS-Protection: 0
+Set-Cookie: accessToken=s%3AeyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiItUHEtNUlHNUgiLCJpYXQiOjE3NjEzMDQyODAsImV4cCI6MTc5Mjg0MDI4MH0.lg2OlqLrHDA7KbjbAtxRPYApqqcZgQHQQ6mP1SM_xItAhumD28DPti7M_hYkwVZSgPeii_xuQbvPDHZqDEHMWA.OoObw54lv%2BNkuHWqigJnuQY7RpagNX3QkKUHBlSgyc0; Domain=.staging.myautochek.com; Path=/; Expires=Sun, 30 Sep 2125 11:11:22 GMT
+ETag: W/"4d3-9oFcMytap7jfp+zy1MGtcrL7F1k"
+server: hide
+
+{
+    "users": [
+        
+    ],
+    "documents": [
+        
+    ],
+    "dsas": [
+        
+    ],
+    "openingDaysAndTime": [
+        
+    ],
+    "staffs": [
+        
+    ],
+    "pictures": [
+        
+    ],
+    "id": "PR2OBJR4g",
+    "name": "Frugal Automation",
+    "owner": "diyrHzEg6",
+    "email": "test1@gmail.com39931@mail.com",
+    "phonenumber": "2.34801E+1139931",
+    "bankName": "GTBank",
+    "accountName": "Acc1",
+    "accountBvn": 1122339931,
+    "status": "pending",
+    "contract": "pending",
+    "type": "dealer",
+    "subscriptionStatus": false,
+    "accountNumber": "123456789039931",
+    "displayAddress": "Addr1",
+    "address": "12B Awolowo Rd (Lekki Phase 1), 100001",
+    "hasAssociation": false,
+    "longitude": 3.379199981689453,
+    "latitude": 6.524400234222412,
+    "onboardingSource": {
+        "roles": [
+            
+        ],
+        "deviceTokens": [
+            
+        ],
+        "id": "diyrHzEg6",
+        "firstname": "esha 13",
+        "lastname": "reddy",
+        "email": "esharedddy@frugaltestingin.com",
+        "primaryPhone": "23412345689",
+        "createdBy": "",
+        "referrerCode": "X22RYC52",
+        "country": "NG",
+        "active": true,
+        "createdAt": "Thu Jun 26 2025 07:49:55 GMT+0000 (Coordinated Universal Time)",
+        "updatedAt": "Fri Oct 24 2025 10:56:39 GMT+0000 (Coordinated Universal Time)",
+        "receiveNotification": true
+    },
+    "mapAddress": "Lagos",
+    "isAnchor": false,
+    "forCollateralInspection": false,
+    "createdAt": "Fri Oct 24 2025 11:11:23 GMT+0000 (Coordinated Universal Time)",
+    "houseNo": "12B",
+    "zipCode": "100001",
+    "streetName": "Awolowo Rd",
+    "nearestLandmark": "Lekki Phase 1"
+}
