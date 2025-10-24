@@ -146,7 +146,7 @@ jobs:
           keep_files: true
           force_orphan: false
 
-      # --- Post hosted link to Summary ---
+      # --- Post links into the run Summary ---
       - name: Post hosted link to Summary
         run: |
           REPO="${{ github.repository }}"
@@ -157,9 +157,9 @@ jobs:
           {
             echo "### Allure Report"
             echo ""
-            echo "[Open latest report](${BASE}/latest/)"
-            echo "[Open this run report](${THIS})"
+            echo "[Open report](${THIS})"
           } >> "$GITHUB_STEP_SUMMARY"
+          
 
       # --- PR gating on severe failures ---
       - name: Gate PR on severe failures
