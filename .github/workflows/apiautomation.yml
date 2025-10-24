@@ -10,23 +10,21 @@ permissions:
 
 env:
   BLOCK_SEVERITIES: blocker,critical,sev1,p0
-  AUTOMATION_REPO: "SumasriFrugal/autochek-api-automation"   # your repo name
+  AUTOMATION_REPO: "SumasriFrugal/autochek-api-automation"   # your automation repo
 
 jobs:
   api-automation-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # --- Download automation repo code ---
-      - name: Download Automation Repository
-        run: |
-          echo "Fetching automation repo: ${{ env.AUTOMATION_REPO }}"
-          curl -L -H "Authorization: Bearer ${{ secrets.API_AUTOMATION_TOKEN }}" \
-            -o api-automation.zip \
-            https://api.github.com/repos/${{ env.AUTOMATION_REPO }}/zipball/main
-          unzip api-automation.zip -d .
-          mv $(ls -d */ | grep -v 'ghp') api-automation
-          ls api-automation
+      # --- Checkout external automation repository ---
+      - name: Checkout Automation Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.AUTOMATION_REPO }}
+          ref: main
+          token: ${{ secrets.API_AUTOMATION_TOKEN }}
+          path: api-automation
 
       # --- Set up JDK 22 ---
       - name: Set up JDK 22
