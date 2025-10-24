@@ -1,0 +1,39 @@
+Request method:	POST
+Request URI:	https://api.staging.myautochek.com/v1/franchise
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer null
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "owner": "diyrHzEg6",
+    "account_number": "1234567890",
+    "is_anchor": "false",
+    "country": "Nigeria",
+    "address": "A1",
+    "city": "Lagos",
+    "display_address": "Addr10",
+    "latitude": "6.5244",
+    "phonenumber": "2348012345",
+    "onboarding_source": "diyrHzEg6",
+    "type": "dealer",
+    "account_bvn": "11223",
+    "zip_code": "12345678901",
+    "street_name": "Awolowo Rd",
+    "account_name": "Acc10",
+    "name": "Frugal Automation",
+    "bank_name": "GTBank",
+    "house_no": "22A",
+    "map_address": "Lagos Ave",
+    "state": "Lagos",
+    "nearest_landmark": "Landmark A",
+    "email": "test10@gmail.com",
+    "city_id": "1309",
+    "longitude": "3.3792"
+}

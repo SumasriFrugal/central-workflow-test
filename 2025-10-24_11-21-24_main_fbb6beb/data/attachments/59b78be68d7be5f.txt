@@ -1,0 +1,39 @@
+Request method:	POST
+Request URI:	https://api.staging.myautochek.com/v1/franchise
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJCUWxRQmJMVFciLCJpYXQiOjE3NjEzMDQ2MDMsImV4cCI6MTc5Mjg0MDYwM30.Iq470zJqkDFChu8x_kiJNsSwQCH1nJmnzE10GY1PdhjEVqW_Hm-pTLu6ooxqHSQy8kua25Rr1X8AMfpngxyetQ
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "owner": "diyrHzEg6",
+    "account_number": "1234567890",
+    "is_anchor": "false",
+    "country": "Nigeria",
+    "address": "Addr12",
+    "city": "Ikeja",
+    "display_address": "Display Addr",
+    "latitude": "6.5244",
+    "phonenumber": "2348012345",
+    "onboarding_source": "diyrHzEg6",
+    "type": "dealer",
+    "account_bvn": "1122334455",
+    "zip_code": "100001",
+    "street_name": "Allen Ave",
+    "account_name": "Acc12",
+    "name": "Frugal Automation",
+    "bank_name": "GTBank",
+    "house_no": "12A",
+    "map_address": "Map Street",
+    "state": "@#State!",
+    "nearest_landmark": "Landmark A",
+    "email": "test12@gmail.com",
+    "city_id": "1309",
+    "longitude": "3.3792"
+}
