@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read     # allows checking out public repos
+  contents: write     # allows checking out public repos
 
 env:
   BLOCK_SEVERITIES: blocker,critical,sev1,p0
