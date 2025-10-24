@@ -1,0 +1,11 @@
+name: Trigger API Automation on PR
+
+on:
+  pull_request:
+    branches: [ main ]  # Triggers when a PR to main is created
+
+jobs:
+  api-tests:
+    name: Run API Automation
+    uses: SumasriFrugal/autochek-api-automation/.github/workflows/apiautomation.yml@main
+    secrets: inherit
