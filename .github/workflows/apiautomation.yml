@@ -21,10 +21,11 @@ jobs:
       - name: Checkout Automation Repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.AUTOMATION_REPO }}
+          repository: SumasriFrugal/autochek-api-automation
           ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.API_AUTOMATION_TOKEN }}
           path: api-automation
+
 
       # --- Set up JDK 22 ---
       - name: Set up JDK 22
