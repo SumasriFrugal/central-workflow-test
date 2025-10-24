@@ -35,9 +35,13 @@ jobs:
           cache: maven
 
       # --- Run API Tests ---
-      - name: Run API Tests
+      - name: Run API Tests (Fresh Run)
         working-directory: api-automation
-        run: mvn -B clean test -DsuiteXmlFile=testng.xml -Dallure.results.directory=target/allure-results
+        run: |
+          rm -rf target/allure-results || true
+          mvn clean
+          mvn -B test -DsuiteXmlFile=testng.xml -Dallure.results.directory=target/allure-results
+
 
       # --- Verify Allure results exist ---
       - name: Verify Allure results exist
