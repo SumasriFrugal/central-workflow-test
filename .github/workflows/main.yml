@@ -1,11 +1,76 @@
-name: Trigger API Automation on PR
+name: Trigger API Automation + Publish Report
 
 on:
   pull_request:
-    branches: [ main ]  # Triggers when a PR to main is created
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  api-tests:
-    name: Run API Automation
+  run-api-tests:
+    name: Run API Tests from Automation Repo
     uses: SumasriFrugal/autochek-api-automation/.github/workflows/apiautomation.yml@main
     secrets: inherit
+
+  publish-report:
+    name: Publish Allure Report to GitHub Pages
+    needs: run-api-tests
+    runs-on: ubuntu-latest
+    if: always()  # Run even if tests failed, so we get the report
+
+    steps:
+      - name: Download Allure Report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - name: Restore Allure History (if exists)
+        run: |
+          mkdir -p allure-report/history
+          if [ -d "gh-pages/latest/history" ]; then
+            cp -r gh-pages/latest/history/* allure-report/history/ || true
+          fi
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+
+      - name: Generate timestamp folder and copy report
+        id: meta
+        run: |
+          TS=$(date -u +"%Y-%m-%d_%H-%M-%S")
+          SHORT_SHA=${GITHUB_SHA::7}
+          DEST="reports/${TS}_${SHORT_SHA}"
+          echo "DEST=$DEST" >> $GITHUB_ENV
+          mkdir -p "gh-pages/$DEST"
+          cp -r allure-report/* "gh-pages/$DEST"
+          rm -rf gh-pages/latest || true
+          mkdir -p gh-pages/latest
+          cp -r allure-report/* gh-pages/latest
+
+      - name: Create Index Page
+        run: |
+          {
+            echo "<!doctype html><html><head><meta charset='utf-8'>"
+            echo "<title>Allure Reports</title>"
+            echo "<style>body{font-family:sans-serif} ul{line-height:1.6}</style>"
+            echo "</head><body><h1>Allure Reports</h1>"
+            echo "<p><strong>Latest:</strong> <a href='./latest/'>View Report</a></p><ul>"
+            find gh-pages/reports -maxdepth 1 -type d | sort -r | while read d; do
+              [ "$d" != "gh-pages/reports" ] && echo "<li><a href='./${d#gh-pages/}'>${d#gh-pages/}</a></li>"
+            done
+            echo "</ul></body></html>"
+          } > gh-pages/index.html
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: gh-pages
+          keep_files: true
