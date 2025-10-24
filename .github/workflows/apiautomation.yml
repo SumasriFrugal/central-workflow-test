@@ -6,24 +6,24 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read     # allows checking out public repos
 
 env:
   BLOCK_SEVERITIES: blocker,critical,sev1,p0
-  AUTOMATION_REPO: "SumasriFrugal/autochek-api-automation"   # your automation repo
+  AUTOMATION_REPO: "SumasriFrugal/autochek-api-automation"
 
 jobs:
   api-automation-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # --- Checkout external automation repository ---
+      # --- Checkout external repo ---
       - name: Checkout Automation Repository
         uses: actions/checkout@v4
         with:
           repository: ${{ env.AUTOMATION_REPO }}
           ref: main
-          token: ${{ secrets.API_AUTOMATION_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: api-automation
 
       # --- Set up JDK 22 ---
@@ -34,7 +34,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # --- Run Maven Tests ---
+      # --- Run API Tests ---
       - name: Run API Tests
         working-directory: api-automation
         run: mvn -B clean test -DsuiteXmlFile=testng.xml -Dallure.results.directory=target/allure-results
@@ -72,7 +72,7 @@ jobs:
           npm install -g allure-commandline --save-dev
           allure generate api-automation/target/allure-results -o api-automation/target/allure-report --clean
 
-      # --- Upload report as artifact (for backup) ---
+      # --- Upload report artifacts ---
       - name: Upload Allure HTML (artifact)
         uses: actions/upload-artifact@v4
         with:
@@ -85,7 +85,7 @@ jobs:
           name: allure-history
           path: api-automation/target/allure-report/history
 
-      # --- Compute directory names for archiving ---
+      # --- Compute archive directory ---
       - name: Compute archive directory
         id: meta
         run: |
