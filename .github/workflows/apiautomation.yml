@@ -1,4 +1,4 @@
-name: API Automation Workflow
+name: API Automation Workflow (External Repo)
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
 
 env:
   BLOCK_SEVERITIES: blocker,critical,sev1,p0
-  AUTOMATION_REPO: SumasriFrugal/autochek-api-automation   # <== your automation repo
+  AUTOMATION_REPO: "SumasriFrugal/autochek-api-automation"   # your repo name
 
 jobs:
   api-automation-tests:
@@ -25,7 +25,7 @@ jobs:
             -o api-automation.zip \
             https://api.github.com/repos/${{ env.AUTOMATION_REPO }}/zipball/main
           unzip api-automation.zip -d .
-          mv ${{ env.AUTOMATION_REPO#*/ }}-* api-automation || mv * api-automation
+          mv $(ls -d */ | grep -v 'ghp') api-automation
           ls api-automation
 
       # --- Set up JDK 22 ---
@@ -148,7 +148,7 @@ jobs:
           keep_files: true
           force_orphan: false
 
-      # --- Post hosted link to summary ---
+      # --- Post hosted link to Summary ---
       - name: Post hosted link to Summary
         run: |
           REPO="${{ github.repository }}"
@@ -163,7 +163,7 @@ jobs:
             echo "[Open this run report](${THIS})"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # --- Gate PR on severe failures ---
+      # --- PR gating on severe failures ---
       - name: Gate PR on severe failures
         if: always()
         run: |
