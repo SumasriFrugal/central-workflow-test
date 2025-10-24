@@ -1,4 +1,4 @@
-name: API Automation Workflow (External Repo)
+name: API Automation Workflow
 
 on:
   pull_request:
