@@ -1,0 +1,14 @@
+Request method:	GET
+Request URI:	https://api.staging.myautochek.com/v1/franchise?page_size=50&country=KE&status=FALSE
+Proxy:			<none>
+Request params:	<none>
+Query params:	page_size=50
+				country=KE
+				status=FALSE
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJrNFYtcHpQMG0iLCJpYXQiOjE3NjEzMDU2NTAsImV4cCI6MTc5Mjg0MTY1MH0.osP-xF8KoXf4Lyo04nGlSGsIQMGiCOETG2h0W6QwsIDLwBhIacZFIfGTJsKEQY3W1FFmS4Y-4NWZ1lMEr6FOjg
+				Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>

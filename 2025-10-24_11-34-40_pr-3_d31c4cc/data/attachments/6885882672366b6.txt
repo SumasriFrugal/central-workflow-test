@@ -1,0 +1,35 @@
+Request method:	POST
+Request URI:	https://api.staging.myautochek.com/v1/franchise
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiItUHEtNUlHNUgiLCJpYXQiOjE3NjEzMDU2NDQsImV4cCI6MTc5Mjg0MTY0NH0.9K9uaY1BXW_d83kG3PmtxnH73HISD_ivaq2zVRPOZIeyrCZXxMpDUScp4nZSFIFEJVXZhz_TdXxnY69UtPZZbQ
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "owner": "diyrHzEg6",
+    "zipCode": "100001",
+    "address": "Ikeja Road",
+    "accountName": "TestUser",
+    "latitude": "6.5244",
+    "phonenumber": "2.34801E+1211451",
+    "bankName": "Autobank",
+    "onboarding_source": "diyrHzEg6",
+    "accountNumber": "12345678911451",
+    "type": "dealer",
+    "accountBvn": "223344556611451",
+    "isAnchor": "true",
+    "streetName": "Allen Avenue",
+    "nearestLandmark": "Near Ikeja Mall",
+    "displayAddress": "123 Test St",
+    "name": "Frugal Automation 07",
+    "houseNo": "12B",
+    "email": "test1@gmail.com11451@mail.com",
+    "longitude": "3.3792",
+    "mapAddress": "Ikeja Center"
+}
